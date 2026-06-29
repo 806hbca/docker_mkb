@@ -8,12 +8,15 @@
 - CUDA: 11.8.0
 - cuDNN: 8
 - ROS1: Noetic
+- Gazebo Classic: 11
 - Python: 3.8
 - pip: 24.2
 - PyTorch: 2.4.1 + cu118
 - torchvision: 0.19.1 + cu118
 - torchaudio: 2.4.1 + cu118
 - NumPy: 1.24.4
+- Pillow: 10.4.0
+- OpenCV Python: 4.10.0.84
 - Transformers: 4.44.2
 - Hugging Face Hub: 0.24.6
 
@@ -64,6 +67,8 @@ docker compose -f docker-compose.yml -f docker-compose.gpu.yml run --rm dev
 python3 - <<'PY'
 import torch
 import numpy
+import PIL
+import cv2
 import transformers
 import huggingface_hub
 
@@ -71,10 +76,13 @@ print("torch:", torch.__version__)
 print("torch cuda:", torch.version.cuda)
 print("cuda available:", torch.cuda.is_available())
 print("numpy:", numpy.__version__)
+print("Pillow:", PIL.__version__)
+print("OpenCV:", cv2.__version__)
 print("transformers:", transformers.__version__)
 print("huggingface_hub:", huggingface_hub.__version__)
 PY
 
 rosversion -d
+gazebo --version
 nvcc --version
 ```

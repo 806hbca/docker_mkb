@@ -53,12 +53,17 @@ RUN curl -fsSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
         ${ROS_PACKAGE} \
+        gazebo11 \
+        libgazebo11-dev \
         python3-catkin-tools \
         python3-rosdep \
         python3-rosinstall \
         python3-rosinstall-generator \
         python3-wstool \
         ros-noetic-cv-bridge \
+        ros-noetic-gazebo-plugins \
+        ros-noetic-gazebo-ros \
+        ros-noetic-gazebo-ros-pkgs \
         ros-noetic-image-transport \
         ros-noetic-tf2-ros \
         ros-noetic-vision-msgs \

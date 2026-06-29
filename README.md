@@ -1,4 +1,4 @@
-# MKBSh2 development container
+# MKB
 
 Контейнер предназначен для разработки Python/ROS1/CUDA-проекта в одинаковом окружении у всей команды.
 
@@ -77,14 +77,4 @@ PY
 
 rosversion -d
 nvcc --version
-```
-
-## ROS workspace
-
-Если в репозитории будет catkin workspace, его можно собрать так:
-
-```bash
-mkdir -p src
-catkin build
-source devel/setup.bash
 ```

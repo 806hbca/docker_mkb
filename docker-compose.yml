@@ -1,0 +1,30 @@
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ROS_DISTRO: "noetic"
+        ROS_PACKAGE: "ros-noetic-ros-base"
+        USER_NAME: "dev"
+        USER_UID: "1000"
+        USER_GID: "1000"
+    image: mkbsh2-vla-dev:0.1.0-cuda11.8-ros1-noetic
+    container_name: mkbsh2-vla-dev
+    shm_size: "8gb"
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
+    environment:
+      ROS_MASTER_URI: "http://localhost:11311"
+      ROS_HOSTNAME: "localhost"
+      HF_HOME: "/home/dev/.cache/huggingface"
+    volumes:
+      - .:/workspace
+      - huggingface-cache:/home/dev/.cache/huggingface
+      - pip-cache:/home/dev/.cache/pip
+    command: ["bash"]
+
+volumes:
+  huggingface-cache:
+  pip-cache:
